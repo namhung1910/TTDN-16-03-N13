@@ -26,6 +26,10 @@
     'data': [
         'security/ir.model.access.csv',
         'views/nhan_vien.xml',
+        'views/phong_ban.xml',
+        'views/chung_chi.xml',
+        'views/cham_cong.xml',
+        'views/lich_su_cong_tac.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode

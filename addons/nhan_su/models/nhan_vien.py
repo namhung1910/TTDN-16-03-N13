@@ -10,3 +10,28 @@ class NhanVien(models.Model):
     que_quan = fields.Char("Quê quán")
     email = fields.Char("Email")
     so_dien_thoai = fields.Char("Số điện thoại")
+    dia_chi = fields.Char(string="Địa chỉ")
+    bao_hiem_xa_hoi = fields.Char(string="Số BHXH")
+    luong = fields.Float(string="Mức lương")
+
+    phong_ban_id = fields.Many2one('phong_ban', string="Phòng ban")
+
+    chung_chi_ids = fields.One2many(
+    'chung_chi',
+    'nhan_vien_id',
+    string="Danh sách chứng chỉ"
+    )
+
+
+    cham_cong_ids = fields.One2many(
+    'cham_cong',
+    'nhan_vien_id',
+    string="Lịch sử chấm công"
+    )
+
+
+    lich_su_cong_tac_ids = fields.One2many(
+        comodel_name='lich_su_cong_tac',
+        inverse_name='nhan_vien_id',
+        string="Lịch sử công tác"
+    )
