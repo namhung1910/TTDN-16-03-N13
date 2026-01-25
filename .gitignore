@@ -1,11 +1,12 @@
 # 1. Chặn tất cả mọi thứ ở thư mục gốc
 /*
 
-# 2. Loại trừ các file/thư mục quan trọng (Bắt đầu bằng dấu !)
+# 2. Loại trừ các file quan trọng ở gốc (Bắt đầu bằng dấu !)
 !/.gitignore
+!/README.md
 !/addons/
 
-# 3. Chặn toàn bộ nội dung trong addons, trừ 3 module vip
+# 3. Chặn toàn bộ trong addons, trừ 3 module "vàng" của Đại Ca
 /addons/*
 !/addons/nhan_su/
 !/addons/tinh_luong/
