@@ -1,19 +1,9 @@
-# Bỏ qua tất cả mọi thứ ở thư mục gốc
 /*
+!/.gitignore
+!/addons/nhan_su/
+!/addons/tinh_luong/
+!/addons/cham_cong/
 
-# Loại trừ (không bỏ qua) thư mục addons và file .gitignore
-!/addons/
-!.gitignore
-!.github/
-
-# Bên trong thư mục addons, vẫn bỏ qua các file rác của Python
 **/__pycache__/
 **/*.py[co]
-**/*.swp
-**/*~
-
-# Bỏ qua các file rác phát sinh trong quá trình Đại Ca làm việc
-/archive_scripts_*/
-/archive_temp_files.sh
-
 .env
