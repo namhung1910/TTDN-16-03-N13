@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Menu Root -->
+    <menuitem id="menu_tinh_luong_root"
+              name="Tính Lương"
+              sequence="30"/>
+
+    <!-- Menu Level 1 -->
+    <menuitem id="menu_tinh_luong_nghiep_vu"
+              name="Nghiệp vụ"
+              parent="menu_tinh_luong_root"
+              sequence="10"/>
+
+    <menuitem id="menu_tinh_luong_cau_hinh"
+              name="Cấu Hình"
+              parent="menu_tinh_luong_root"
+              sequence="15"/>
+
+    <menuitem id="menu_tinh_luong_bao_cao"
+              name="Báo cáo"
+              parent="menu_tinh_luong_root"
+              sequence="20"/>
+
+    <!-- Menu Items -->
+    <menuitem id="menu_bang_luong"
+              name="Bảng Lương"
+              parent="menu_tinh_luong_nghiep_vu"
+              action="action_bang_luong"
+              sequence="10"/>
+
+    <menuitem id="menu_chi_tiet_luong"
+              name="Chi Tiết Lương"
+              parent="menu_tinh_luong_nghiep_vu"
+              action="action_chi_tiet_luong"
+              sequence="20"/>
+
+    <menuitem id="menu_cau_hinh_luong"
+              name="Cấu Hình Lương"
+              parent="menu_tinh_luong_cau_hinh"
+              action="action_cau_hinh_luong"
+              sequence="10"/>
+</odoo>

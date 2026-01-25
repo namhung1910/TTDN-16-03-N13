@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_nhan_vien_user,access_nhan_vien_user,model_nhan_vien,base.group_user,1,1,1,1
+access_phong_ban_user,access_phong_ban_user,model_phong_ban,base.group_user,1,1,1,1
+access_chung_chi_user,access_chung_chi_user,model_chung_chi,base.group_user,1,1,1,1
+access_lich_su_cong_tac_user,access_lich_su_cong_tac_user,model_lich_su_cong_tac,base.group_user,1,1,1,1

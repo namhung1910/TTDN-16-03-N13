@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_chi_tiet_luong_form" model="ir.ui.view">
+        <field name="name">chi.tiet.luong.form</field>
+        <field name="model">chi_tiet_luong</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Thông Tin Cơ Bản">
+                            <field name="bang_luong_id"/>
+                            <field name="nhan_vien_id"/>
+                            <field name="thang"/>
+                            <field name="nam"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lương &amp; Phụ Cấp" name="luong">
+                            <group>
+                                <group string="Lương Cơ Bản">
+                                    <field name="luong_hop_dong" widget="monetary"/>
+                                    <field name="phu_cap_an_trua" widget="monetary"/>
+                                    <field name="phu_cap_khac" widget="monetary"/>
+                                </group>
+                                <group string="Lương Gross">
+                                    <field name="luong_chinh" widget="monetary" readonly="1"/>
+                                    <field name="tong_thu_nhap" widget="monetary" readonly="1" 
+                                           style="font-weight: bold;"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Ngày Công" name="ngay_cong">
+                            <group>
+                                <group>
+                                    <field name="so_ngay_lam_viec" readonly="1"/>
+                                    <field name="so_ngay_nghi_phep"/>
+                                    <field name="so_ngay_nghi_khong_phep" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="tong_ngay_cong" readonly="1" 
+                                           style="font-weight: bold;"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Bảo Hiểm" name="bao_hiem">
+                            <group>
+                                <group>
+                                    <field name="luong_dong_bao_hiem" widget="monetary"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Chi Tiết Bảo Hiểm">
+                                    <field name="bhxh" widget="monetary" readonly="1"/>
+                                    <field name="bhyt" widget="monetary" readonly="1"/>
+                                    <field name="bhtn" widget="monetary" readonly="1"/>
+                                    <field name="tong_bao_hiem" widget="monetary" readonly="1" 
+                                           style="font-weight: bold;"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Thuế TNCN" name="thue">
+                            <group>
+                                <group string="Thu Nhập Tính Thuế">
+                                    <field name="thu_nhap_chiu_thue" widget="monetary" readonly="1"/>
+                                    <field name="giam_tru_gia_canh" widget="monetary"/>
+                                    <field name="thu_nhap_tinh_thue" widget="monetary" readonly="1"/>
+                                </group>
+                                <group string="Thuế">
+                                    <field name="thue_tncn" widget="monetary" readonly="1" 
+                                           style="font-weight: bold;"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Lương Net" name="luong_net">
+                            <group>
+                                <group string="Tổng Kết">
+                                    <field name="tong_thu_nhap" widget="monetary" readonly="1"/>
+                                    <field name="tong_bao_hiem" widget="monetary" readonly="1"/>
+                                    <field name="thue_tncn" widget="monetary" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="luong_thuc_nhan" widget="monetary" readonly="1" 
+                                           style="font-size: 1.5em; font-weight: bold; color: green;"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Ghi Chú" name="ghi_chu">
+                            <field name="ghi_chu"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_chi_tiet_luong_tree" model="ir.ui.view">
+        <field name="name">chi.tiet.luong.tree</field>
+        <field name="model">chi_tiet_luong</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="nhan_vien_id"/>
+                <field name="thang"/>
+                <field name="nam"/>
+                <field name="tong_ngay_cong"/>
+                <field name="tong_thu_nhap" widget="monetary"/>
+                <field name="tong_bao_hiem" widget="monetary"/>
+                <field name="thue_tncn" widget="monetary"/>
+                <field name="luong_thuc_nhan" widget="monetary" decoration-bf="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_chi_tiet_luong_search" model="ir.ui.view">
+        <field name="name">chi.tiet.luong.search</field>
+        <field name="model">chi_tiet_luong</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nhan_vien_id"/>
+                <field name="bang_luong_id"/>
+                <field name="thang"/>
+                <field name="nam"/>
+                <group expand="0" string="Group By">
+                    <filter string="Nhân viên" name="group_nhan_vien" context="{'group_by': 'nhan_vien_id'}"/>
+                    <filter string="Bảng lương" name="group_bang_luong" context="{'group_by': 'bang_luong_id'}"/>
+                    <filter string="Tháng" name="group_thang" context="{'group_by': 'thang'}"/>
+                    <filter string="Năm" name="group_nam" context="{'group_by': 'nam'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_chi_tiet_luong" model="ir.actions.act_window">
+        <field name="name">Chi Tiết Lương</field>
+        <field name="res_model">chi_tiet_luong</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

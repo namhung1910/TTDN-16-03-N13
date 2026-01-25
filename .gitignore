@@ -1,9 +1,21 @@
+# 1. Chặn tất cả mọi thứ ở thư mục gốc
 /*
+
+# 2. Loại trừ các file/thư mục quan trọng (Bắt đầu bằng dấu !)
 !/.gitignore
+!/addons/
+
+# 3. Chặn toàn bộ nội dung trong addons, trừ 3 module vip
+/addons/*
 !/addons/nhan_su/
 !/addons/tinh_luong/
 !/addons/cham_cong/
 
+# 4. Chặn triệt để thư mục chứa file 'nul' gây lỗi
+/archive_scripts_*/
+/archive_temp_files.sh
+
+# 5. Chặn rác Python và file môi trường
 **/__pycache__/
 **/*.py[co]
 .env
