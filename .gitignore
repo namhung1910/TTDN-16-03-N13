@@ -1,20 +1,26 @@
 # 1. Chặn tất cả mọi thứ ở thư mục gốc
 /*
 
-# 2. Loại trừ các file quan trọng ở gốc (Bắt đầu bằng dấu !)
+# 2. Loại trừ các file/thư mục quan trọng ở gốc (Bắt đầu bằng dấu !)
 !/.gitignore
 !/README.md
+!/imageforgit/
 !/addons/
 
-# 3. Chặn toàn bộ trong addons, trừ 3 module "vàng" của Đại Ca
+# 3. Chặn toàn bộ nội dung trong addons, trừ 3 module 
 /addons/*
 !/addons/nhan_su/
 !/addons/tinh_luong/
 !/addons/cham_cong/
 
-# 4. Chặn triệt để thư mục chứa file 'nul' gây lỗi
+# 4. Chặn triệt để các thư mục rác/lỗi
 /archive_scripts_*/
 /archive_temp_files.sh
+/debian/
+/doc/
+/odoo/
+/setup/
+/venv/
 
 # 5. Chặn rác Python và file môi trường
 **/__pycache__/
