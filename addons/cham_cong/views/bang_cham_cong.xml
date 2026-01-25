@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_bang_cham_cong_form" model="ir.ui.view">
+            <field name="name">bang_cham_cong.form</field>
+            <field name="model">bang_cham_cong</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_read_only" style="font-size:25px">Bảng chấm công</div>
+                        <group string="Thông tin chung">
+                            <group>
+                                <field name="nhan_vien_id" string="Nhân viên"/>
+                                <field name="ngay_cham_cong" string="Ngày chấm công"/>
+                                <field name="ca_lam" string="Ca làm"/>
+                                <field name="gio_vao_ca" string="Giờ vào ca"/>
+                                <field name="gio_ra_ca" string="Giờ ra ca"/>
+                            </group>
+                            <group>
+                                <field name="gio_vao" string="Giờ vào thực tế"/>
+                                <field name="gio_ra" string="Giờ ra thực tế"/>
+                                <field name="phut_di_muon" string="Phút đi muộn"/>
+                                <field name="phut_ve_som" string="Phút về sớm"/>
+                                <field name="trang_thai" string="Trạng thái"/>
+                            </group>
+                        </group>
+                        
+                        <group string="Đơn từ">
+                            <field name="don_tu_id" string="Đơn từ"/>
+                            <field name="loai_don" string="Loại đơn"/>
+                            <field name="thoi_gian_xin" string="Thời gian xin (phút)"/>
+                        </group>
+                    
+                    <group string="Ghi chú">
+                        <field name="ghi_chu" nolabel="1" placeholder="Thêm ghi chú cho bản ghi chấm công này..."/>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_bang_cham_cong_tree" model="ir.ui.view">
+            <field name="name">bang_cham_cong.tree</field>
+            <field name="model">bang_cham_cong</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nhan_vien_id"/>
+                    <field name="ngay_cham_cong"/>
+                    <field name="ca_lam"/>
+                    <field name="gio_vao_ca"/>
+                    <field name="gio_ra_ca"/>
+                    <field name="gio_vao"/>
+                    <field name="gio_ra"/>
+                    <field name="phut_di_muon"/>
+                    <field name="phut_ve_som"/>
+                    <field name="trang_thai"/>
+                    <field name="loai_don"/>
+                    <field name="thoi_gian_xin"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="bang_cham_cong_search" model="ir.ui.view">
+            <field name="model">bang_cham_cong</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="nhan_vien_id"/>
+                    <field name="ngay_cham_cong"/>
+                    <field name="ca_lam"/>
+                    <field name="gio_vao_ca"/>
+                    <field name="gio_ra_ca"/>
+                    <field name="gio_vao"/>
+                    <field name="gio_ra"/>
+                    <field name="phut_di_muon"/>
+                    <field name="phut_ve_som"/>
+                    <field name="trang_thai"/>
+                    <field name="loai_don"/>
+                    <field name="thoi_gian_xin"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_bang_cham_cong" model="ir.actions.act_window">
+            <field name="name">Bảng chấm công</field>
+            <field name="res_model">bang_cham_cong</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="bang_cham_cong_search"/>
+        </record>
+    </data>
+</odoo>

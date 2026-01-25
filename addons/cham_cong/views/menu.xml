@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Root menu riêng cho module Chấm Công -->
+        <menuitem id="menu_root" 
+                  name="Chấm Công" 
+                  sequence="10"/>
+
+        <menuitem name="Chấm công" 
+                  id="menu_cham_cong_main"
+                  parent="menu_root"
+                  sequence="1"
+                  action="action_bang_cham_cong"/>
+
+        <menuitem name="Đăng ký ca làm" 
+                  id="menu_dang_ky_ca_lam" 
+                  parent="menu_root"
+                  sequence="2"
+                  action="action_dang_ky_ca_lam_theo_ngay"/>
+
+        <menuitem name="Đơn từ" 
+                  id="menu_don_tu"
+                  parent="menu_root"
+                  sequence="3"
+                  action="action_don_tu"/>
+
+        <menuitem name="Đợt đăng ký" 
+                  id="menu_dot_dang_ky"
+                  parent="menu_root"
+                  sequence="4"
+                  action="action_dot_dang_ky"/>
+
+        <!-- Face Recognition Check-in -->
+        <record id="action_face_checkin" model="ir.actions.client">
+            <field name="name">Điểm Danh Khuôn Mặt</field>
+            <field name="tag">face_checkin_widget</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem name="🎭 Điểm Danh Face ID" 
+                  id="menu_face_checkin"
+                  parent="menu_root"
+                  sequence="5"
+                  action="action_face_checkin"/>
+
+    </data>
+</odoo>
