@@ -59,11 +59,6 @@ class ChiTietLuong(models.Model):
         help="Lương cơ bản theo hợp đồng - Tự động lấy từ hồ sơ nhân viên"
     )
     
-    @api.onchange('nhan_vien_id')
-    def _onchange_nhan_vien(self):
-        """Tự động điền lương khi chọn nhân viên"""
-        if self.nhan_vien_id and self.nhan_vien_id.luong:
-            self.luong_dong_bao_hiem = self.nhan_vien_id.luong
     
     phu_cap_an_trua = fields.Float(
         string="Phụ cấp ăn trưa",
@@ -173,7 +168,10 @@ class ChiTietLuong(models.Model):
     # ===== D. BẢO HIỂM =====
     luong_dong_bao_hiem = fields.Float(
         string="Lương đóng bảo hiểm",
-        help="Mức lương cơ sở để tính bảo hiểm - Tự động điền bằng lương hợp đồng"
+        related='nhan_vien_id.luong',
+        store=True,
+        readonly=False,
+        help="Mức lương cơ sở để tính bảo hiểm - Tự động lấy từ hồ sơ nhân viên"
     )
     bhxh = fields.Float(
         string="BHXH (8%)",
